@@ -1,0 +1,12 @@
+C:\Users\Max\source\repos\Minimarket\MinimarketEntidades\bin\Debug\MinimarketEntidades.dll
+C:\Users\Max\source\repos\Minimarket\MinimarketEntidades\bin\Debug\MinimarketEntidades.pdb
+C:\Users\Max\source\repos\Minimarket\MinimarketEntidades\obj\Debug\MinimarketEntidades.csproj.AssemblyReference.cache
+C:\Users\Max\source\repos\Minimarket\MinimarketEntidades\obj\Debug\MinimarketEntidades.csproj.CoreCompileInputs.cache
+C:\Users\Max\source\repos\Minimarket\MinimarketEntidades\obj\Debug\MinimarketEntidades.dll
+C:\Users\Max\source\repos\Minimarket\MinimarketEntidades\obj\Debug\MinimarketEntidades.pdb
+C:\Users\Max_j\OneDrive\Escritorio\Max\Minimarket\MinimarketEntidades\bin\Debug\MinimarketEntidades.dll
+C:\Users\Max_j\OneDrive\Escritorio\Max\Minimarket\MinimarketEntidades\bin\Debug\MinimarketEntidades.pdb
+C:\Users\Max_j\OneDrive\Escritorio\Max\Minimarket\MinimarketEntidades\obj\Debug\MinimarketEntidades.csproj.AssemblyReference.cache
+C:\Users\Max_j\OneDrive\Escritorio\Max\Minimarket\MinimarketEntidades\obj\Debug\MinimarketEntidades.csproj.CoreCompileInputs.cache
+C:\Users\Max_j\OneDrive\Escritorio\Max\Minimarket\MinimarketEntidades\obj\Debug\MinimarketEntidades.dll
+C:\Users\Max_j\OneDrive\Escritorio\Max\Minimarket\MinimarketEntidades\obj\Debug\MinimarketEntidades.pdb
