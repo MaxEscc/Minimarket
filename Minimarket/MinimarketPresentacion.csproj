@@ -140,6 +140,12 @@
     <Compile Include="Reportes\frm_Departamento.Designer.cs">
       <DependentUpon>frm_Departamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\Frm_Productos_re.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Frm_Productos_re.Designer.cs">
+      <DependentUpon>Frm_Productos_re.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frm_Provincias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +169,12 @@
     </Compile>
     <Compile Include="Reportes\Frm_reportes_M.Designer.cs">
       <DependentUpon>Frm_reportes_M.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Frm_Reportes_pv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Frm_Reportes_pv.Designer.cs">
+      <DependentUpon>Frm_Reportes_pv.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Frm_Reportes_Um.cs">
       <SubType>Form</SubType>
@@ -219,6 +231,9 @@
     <EmbeddedResource Include="Reportes\frm_Departamento.resx">
       <DependentUpon>frm_Departamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Frm_Productos_re.resx">
+      <DependentUpon>Frm_Productos_re.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frm_Provincias.resx">
       <DependentUpon>frm_Provincias.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +246,9 @@
     <EmbeddedResource Include="Reportes\Frm_reportes_M.resx">
       <DependentUpon>Frm_reportes_M.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Frm_Reportes_pv.resx">
+      <DependentUpon>Frm_Reportes_pv.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Frm_Reportes_Um.resx">
       <DependentUpon>Frm_Reportes_Um.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +259,8 @@
     <EmbeddedResource Include="Reportes\Reportes_Departamento.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes_m.rdlc" />
     <EmbeddedResource Include="Reportes\reportes_cs.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes_Productos.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes_Proveedores.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes_Provincias.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes_UM.rdlc" />
     <EmbeddedResource Include="Reportes\Reporte_rubro.rdlc" />

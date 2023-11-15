@@ -52,6 +52,8 @@ namespace MinimarketDatos
                 Comando.Parameters.Add("@nCodigo_dis", SqlDbType.Int).Value = oDi.codigo_dis;
                 Comando.Parameters.Add("@cDescripcion_dis", SqlDbType.VarChar).Value = oDi.descripcion_dis;
                 Comando.Parameters.Add("@nCodigo_po", SqlDbType.Int).Value = oDi.codigo_po;
+               
+
                 SqlCon.Open();
                 Respuesta = Comando.ExecuteNonQuery() == 1 ? "OK" : "NO SE PUDO REGISTRAR LOS DATOS";
             }

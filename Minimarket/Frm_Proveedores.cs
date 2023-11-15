@@ -19,7 +19,7 @@ namespace Minimarket
         {
             //Desabiliatar casilla de mantenimiento 
             InitializeComponent();
-            //Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = false;
+            Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = false;
             Estado_BotonesProcesos(false);
 
 
@@ -31,9 +31,6 @@ namespace Minimarket
         int codigo_sx = 0;
         int codigo_rb = 0;
         int codigo_dis = 0;
-
-
-
         int EstadoGuarda = 0; //
         #endregion
 
@@ -41,22 +38,20 @@ namespace Minimarket
         private void Formato_pv()
         {
             dataGridViewListado.Columns[0].Width = 50;
-            dataGridViewListado.Columns[0].HeaderText = "CODIGO_Pv";
-            dataGridViewListado.Columns[1].Width = 100;
-            dataGridViewListado.Columns[1].HeaderText = "TIPO DOC";
-            //
-            dataGridViewListado.Columns[2].Width = 100;
-            dataGridViewListado.Columns[2].HeaderText = "NRO DOC";
-            dataGridViewListado.Columns[3].Width = 100;
-            dataGridViewListado.Columns[3].HeaderText = "RAZON SOCIAL";
-            dataGridViewListado.Columns[4].Width = 100;
-            dataGridViewListado.Columns[4].HeaderText = "NOMBRES";
-            dataGridViewListado.Columns[5].Width = 70;
-            dataGridViewListado.Columns[5].HeaderText = "APELLIDOS";
-            dataGridViewListado.Columns[6].Width = 70;
-            dataGridViewListado.Columns[6].HeaderText = "RUBRO";
+            dataGridViewListado.Columns[0].HeaderText = "CODIGO_PV";
+            dataGridViewListado.Columns[1].Width = 50;
+            dataGridViewListado.Columns[1].HeaderText = "Tipo documento";
+            dataGridViewListado.Columns[2].Width = 50;
+            dataGridViewListado.Columns[2].HeaderText = "nro documento";
+            dataGridViewListado.Columns[3].Width = 50;
+            dataGridViewListado.Columns[3].HeaderText = "Razon social";
+            dataGridViewListado.Columns[4].Width = 50;
+            dataGridViewListado.Columns[4].HeaderText = "nombres";
+            dataGridViewListado.Columns[5].Width = 50;
+            dataGridViewListado.Columns[5].HeaderText = "apellidos";
+            dataGridViewListado.Columns[6].Width = 50;
+            dataGridViewListado.Columns[6].HeaderText = "Rubro";
             dataGridViewListado.Columns[7].Visible = false;
-
             dataGridViewListado.Columns[8].Visible = false;
             dataGridViewListado.Columns[9].Visible = false;
             dataGridViewListado.Columns[10].Visible = false;
@@ -67,6 +62,9 @@ namespace Minimarket
             dataGridViewListado.Columns[15].Visible = false;
             dataGridViewListado.Columns[16].Visible = false;
             dataGridViewListado.Columns[17].Visible = false;
+            dataGridViewListado.Columns[18].Visible = false;
+            dataGridViewListado.Columns[19].Visible = false;
+
         }
         private void Listado_pv(string cTexto)
         {
@@ -83,46 +81,18 @@ namespace Minimarket
         }
         #endregion
 
-        private void Estado_texto(bool lestado)
-        {
-            txt_nd.ReadOnly = !lestado;
-            txt_rs.ReadOnly = !lestado;
-            txt_n.ReadOnly = !lestado;
-            txt_a.ReadOnly = !lestado;
-            txt_email.ReadOnly = !lestado;
-            txt_telefono.ReadOnly = !lestado;
-            txt_cel.ReadOnly = !lestado;
-            txt_direccion.ReadOnly = !lestado;
-            txt_comentario.ReadOnly = !lestado;
-        }
-
-        private void Limpia_texto()
-        {
-            txt_nd.Text = "";
-            txt_rs.Text = ""; ;
-            txt_n.Text = ""; ;
-            txt_a.Text = ""; ;
-            txt_email.Text = ""; 
-            txt_telefono.Text = ""; 
-            txt_telefono.Text = ""; 
-            txt_direccion.Text = "" ;
-            txt_comentario.Text = "";
-        }
-
-
         private void Formato_pc()
         {
-            dataGridView_td.Columns[0].Width = 200;
-            dataGridView_td.Columns[0].HeaderText = "Tipo de documento";
-
-            dataGridView_td.Columns[1].Visible = false;
+            dataGridViewTD.Columns[0].Width = 200;
+            dataGridViewTD.Columns[0].HeaderText = "TIPO DOCUMENTO";
+            dataGridViewTD.Columns[1].Visible = false;
 
         }
         private void Listado_pc()
         {
             try
             {
-                dataGridView_td.DataSource = N_Proveedores.Listado_pc();
+                dataGridViewTD.DataSource = N_Proveedores.Listado_pc();
                 this.Formato_pc();
             }
             catch (Exception ex)
@@ -132,35 +102,31 @@ namespace Minimarket
             }
         }
 
-        private void Seleciona_item_pc()
+        private void Seleciona_pc()
         {
-            if (string.IsNullOrEmpty(Convert.ToString(dataGridView_td.CurrentRow.Cells["codigo_pc"].Value)))
+            if (string.IsNullOrEmpty(Convert.ToString(dataGridViewTD.CurrentRow.Cells["codigo_pc"].Value)))
             {
-
                 MessageBox.Show("No existe informacion para visualizar", "Aviso del sistema,", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
             else
             {
-                this.codigo_pc = Convert.ToInt32(dataGridView_td.CurrentRow.Cells["codigo_pc"].Value);
-                txt_td.Text = Convert.ToString(dataGridView_td.CurrentRow.Cells["descripcion_pc"].Value);
-
+                this.codigo_pc = Convert.ToInt32(dataGridViewTD.CurrentRow.Cells["codigo_pc"].Value);
+                txt_TipoD.Text = Convert.ToString(dataGridViewTD.CurrentRow.Cells["descripcion_pc"].Value);
             }
         }
 
         private void Formato_sx()
         {
-            dataGridViewsx.Columns[0].Width = 200;
-            dataGridViewsx.Columns[0].HeaderText = "Tipo de documento";
-
-            dataGridViewsx.Columns[1].Visible = false;
+            dataGridViewSX.Columns[0].Width = 50;
+            dataGridViewSX.Columns[0].HeaderText = "Género";
+            dataGridViewSX.Columns[1].Visible = false;
 
         }
         private void Listado_sx()
         {
             try
             {
-                dataGridViewsx.DataSource = N_Proveedores.Listado_sx();
+                dataGridViewSX.DataSource = N_Proveedores.Listado_sx();
                 this.Formato_sx();
             }
             catch (Exception ex)
@@ -170,36 +136,33 @@ namespace Minimarket
             }
         }
 
-        private void Seleciona_item_sx()
+        private void Seleciona_sx()
         {
-            if (string.IsNullOrEmpty(Convert.ToString(dataGridViewsx.CurrentRow.Cells["codigo_sx"].Value)))
+            if (string.IsNullOrEmpty(Convert.ToString(dataGridViewSX.CurrentRow.Cells["codigo_sx"].Value)))
             {
-
                 MessageBox.Show("No existe informacion para visualizar", "Aviso del sistema,", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
             else
             {
-                this.codigo_sx = Convert.ToInt32(dataGridViewsx.CurrentRow.Cells["codigo_sx"].Value);
-                txt_s.Text = Convert.ToString(dataGridViewsx.CurrentRow.Cells["descripcion_sx"].Value);
-
+                this.codigo_sx = Convert.ToInt32(dataGridViewSX.CurrentRow.Cells["codigo_sx"].Value);
+                txt_Sexo.Text = Convert.ToString(dataGridViewSX.CurrentRow.Cells["descripcion_sx"].Value);
             }
         }
 
-
-        private void Formato_RB()
+        private void Formato_rb()
         {
-            dataGridViewRB.Columns[0].Width = 0;
-            dataGridViewRB.Columns[0].HeaderText = "rubro";
-            dataGridViewRB.Columns[1].Visible = false;
+            data_rubro.Columns[0].Width = 50;
+            data_rubro.Columns[0].HeaderText = "Rubro";
+            data_rubro.Columns[1].Visible = false;
+      
 
         }
         private void Listado_rb(string cTexto)
         {
             try
             {
-                dataGridViewRB.DataSource = N_Proveedores.Listado_rb_pv(cTexto);
-                this.Formato_RB();
+                data_rubro.DataSource = N_Proveedores.Listado_rb_pv(cTexto);
+                this.Formato_rb();
             }
             catch (Exception ex)
             {
@@ -208,39 +171,37 @@ namespace Minimarket
             }
         }
 
-        private void Seleciona_item_rb()
+        private void Seleciona_rubro()
         {
-            if (string.IsNullOrEmpty(Convert.ToString(dataGridViewRB.CurrentRow.Cells["codigo_rb"].Value)))
+            if (string.IsNullOrEmpty(Convert.ToString(data_rubro.CurrentRow.Cells["codigo_rb"].Value)))
             {
-
                 MessageBox.Show("No existe informacion para visualizar", "Aviso del sistema,", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
             else
             {
-                this.codigo_rb = Convert.ToInt32(dataGridViewRB.CurrentRow.Cells["codigo_rb"].Value);
-                txt_r.Text = Convert.ToString(dataGridViewRB.CurrentRow.Cells["descripcion_rb"].Value);
-
+                this.codigo_rb = Convert.ToInt32(data_rubro.CurrentRow.Cells["codigo_rb"].Value);
+                txt_rubro.Text = Convert.ToString(data_rubro.CurrentRow.Cells["descripcion_rb"].Value);
             }
         }
 
-        private void Formato_dis()
+        private void Formato_c()
         {
-            dataGridViewCiudades.Columns[0].Width = 0;
-            dataGridViewCiudades.Columns[0].HeaderText = "ciudades";
-            dataGridViewCiudades.Columns[1].Width = 0;
-            dataGridViewCiudades.Columns[1].HeaderText = "Estado";
-            dataGridViewCiudades.Columns[2].Width = 0;
-            dataGridViewCiudades.Columns[2].HeaderText = "Direccion";
-            dataGridViewCiudades.Columns[3].Visible = false;
+            dataGridView_C.Columns[0].Width = 50;
+            dataGridView_C.Columns[0].HeaderText = "direcion";
+            dataGridView_C.Columns[1].Width = 50;
+            dataGridView_C.Columns[1].HeaderText = "Ciudad";
+            dataGridView_C.Columns[2].Width = 50;
+            dataGridView_C.Columns[2].HeaderText = "estado";
+            dataGridView_C.Columns[3].Visible = false;
+
 
         }
-        private void Listado_dis_pv(string cTexto)
+        private void Listado_c(string cTexto)
         {
             try
             {
-                dataGridViewCiudades.DataSource = N_Proveedores.Listado_dis_pv(cTexto);
-                this.Formato_dis();
+                dataGridView_C.DataSource = N_Proveedores.Listado_dis_pv(cTexto);
+                this.Formato_c();
             }
             catch (Exception ex)
             {
@@ -249,25 +210,23 @@ namespace Minimarket
             }
         }
 
-        private void Seleciona_item_dis()
+        private void Seleciona_c()
         {
-            if (string.IsNullOrEmpty(Convert.ToString(dataGridViewCiudades.CurrentRow.Cells["codigo_dis"].Value)))
+            if (string.IsNullOrEmpty(Convert.ToString(dataGridView_C.CurrentRow.Cells["codigo_dis"].Value)))
             {
-
                 MessageBox.Show("No existe informacion para visualizar", "Aviso del sistema,", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
             else
             {
-                this.codigo_dis = Convert.ToInt32(dataGridViewCiudades.CurrentRow.Cells["codigo_dis"].Value);
-                txt_ciudad.Text = Convert.ToString(dataGridViewCiudades.CurrentRow.Cells["descripcion_dis"].Value) + " / " +
-                                  Convert.ToString(dataGridViewCiudades.CurrentRow.Cells["descripcion_po"].Value) + " / " +
-                                  Convert.ToString(dataGridViewCiudades.CurrentRow.Cells["descripcion_de"].Value) ;
+                this.codigo_dis = Convert.ToInt32(dataGridView_C.CurrentRow.Cells["codigo_dis"].Value);
+                txt_ciudad.Text = Convert.ToString(dataGridView_C.CurrentRow.Cells["descripcion_dis"].Value) + '/' +
+                                  Convert.ToString(dataGridView_C.CurrentRow.Cells["descripcion_po"].Value) + '/' +
+                                   Convert.ToString(dataGridView_C.CurrentRow.Cells["descripcion_de"].Value);
+
+
 
             }
         }
-
-
 
 
 
@@ -278,8 +237,9 @@ namespace Minimarket
             this.Listado_pv("%");
             this.Listado_pc();
             this.Listado_sx();
-           this.Listado_rb("%");
-            this.Listado_dis_pv("%"); 
+            this.Listado_rb("%");
+            this.Listado_c("%");
+
 
             txt_Buscar.Text = "Buscar";
 
@@ -302,50 +262,62 @@ namespace Minimarket
 
 
             //
-            //
 
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-           if (txt_td.Text == String.Empty ||
-                txt_nd.Text == String.Empty ||
-                txt_rs.Text == String.Empty ||
-                txt_direccion.Text == String.Empty)
+          if (txt_TipoD.Text == String.Empty ||
+                txt_RazonS.Text == String.Empty ||
+                txt_Sexo.Text == String.Empty ||
+                txt_ciudad.Text == String.Empty ||
+                txt_NumeroD.Text == String.Empty ||
+                txt_rubro.Text == String.Empty)
             {
                 MessageBox.Show("No se ha ingresado ningun dato (*)", "Aviso del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else // Registrar informacion
             {
-                E_Productos oPr = new E_Productos();
+                
                 string respuesta = "";
-                oPr.codigo_p = this.codigo_p;
-                oPr.descripcion_p = txt_td.Text.Trim();
+                E_Proveedores ePv = new E_Proveedores();
 
-                oPr.codigo_m = this.codigo_m;
-                oPr.codigo_um = this.codigo_um;
-                oPr.codigo_ca = this.codigo_ca;
-                oPr.stock_min = Convert.ToDecimal(txt_a.Text);
-                oPr.stock_max = Convert.ToDecimal(txt_n.Text);
+                ePv.codigo_pv = this.codigo_pv;
+                ePv.codigo_pc = this.codigo_pc;
+                ePv.nrodocumentopv = txt_NumeroD.Text.Trim();
+                ePv.razon_social_pv = txt_RazonS.Text.Trim();
+             
+                ePv.nombres = txt_Nombres.Text.Trim();
+                ePv.apellidos = txt_Apellidos.Text.Trim();
+                ePv.codigo_sx = this.codigo_sx;
+                ePv.codigo_rb = this.codigo_rb;
+                ePv.email_pv = txt_correo.Text.Trim();
+                ePv.telefono_pv = txt_telefono.Text.Trim();
+                ePv.movil_pv = txt_cel.Text.Trim();
+                ePv.direccion_pv = txt_Direccion.Text.Trim();
+                ePv.codigo_dis = this.codigo_dis;
+                ePv.observacion_pv = txt_Comentario.Text.Trim();
 
-                respuesta = N_Productos.Guardar_p(EstadoGuarda, oPr);
-                if (respuesta == "OK")
+
+                respuesta = N_Proveedores.Guardar_pv(EstadoGuarda, ePv);
+                if (respuesta.Equals ("OK"))
                 {
-                    this.Listado_p("%");
+                    this.Listado_pv("%");
                     MessageBox.Show("Datos guardados Corresctamente", "Aviso del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     EstadoGuarda = 0;//no hace nada al cumplir la tarea
                     this.Estado_BotonesPrincipales(true);
                     Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = false;
                     this.Estado_BotonesProcesos(false);
-                    txt_td.Text = "";
-                    txt_a.Text = "0";
-                    txt_n.Text = "0";
-                    txt_a.ReadOnly = true;
-                    txt_n.ReadOnly = true;
-                    txt_td.ReadOnly = true;
+
+
+                    EstadoTexto(false);
                     Tc_Marcas.SelectedIndex = 0;
-                    this.codigo_p = 0;
-                    groupBox_Detalle.Visible = false;
+                    this.codigo_pv= 0;
+                    this.codigo_pc = 0;
+                    this.codigo_sx = 0;
+                    this.codigo_rb = 0;
+                    this.codigo_dis = 0;
+
 
                 }
                 else
@@ -379,131 +351,159 @@ namespace Minimarket
         {
             if (string.IsNullOrEmpty(Convert.ToString(dataGridViewListado.CurrentRow.Cells["codigo_pv"].Value)))
             {
-
+                
                 MessageBox.Show("No existe informacion para visualizar", "Aviso del sistema,", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+       
             }
             else
             {
                 string ciudad = "";
                 this.codigo_pv = Convert.ToInt32(dataGridViewListado.CurrentRow.Cells["codigo_pv"].Value);
                 this.codigo_pc = Convert.ToInt32(dataGridViewListado.CurrentRow.Cells["codigo_pc"].Value);
-                txt_td.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["descripcion_pc"].Value);
-                txt_nd.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["nrodocumentopv"].Value);
-                txt_rs.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["razon_social_pv"].Value);
-                txt_n.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["nombres"].Value);
-                txt_a.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["apellidos"].Value);
+                txt_TipoD.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["descripcion_pc"].Value);
+                txt_NumeroD.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["nrodocumentopv"].Value);
+                txt_RazonS.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["razon_social_pv"].Value);
+                txt_Nombres.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["nombres"].Value);
+                txt_Apellidos.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["apellidos"].Value);
+
                 //
                 this.codigo_rb = Convert.ToInt32(dataGridViewListado.CurrentRow.Cells["codigo_rb"].Value);
-                txt_r.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["descripcion_rb"].Value);
-
-                txt_email.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["email_pv"].Value);
+                txt_rubro.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["descripcion_rb"].Value);
+                txt_correo.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["email_pv"].Value);
                 txt_telefono.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["telefono_pv"].Value);
                 txt_cel.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["movil_pv"].Value);
                 //
                 this.codigo_sx = Convert.ToInt32(dataGridViewListado.CurrentRow.Cells["codigo_sx"].Value);
-                txt_s.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["descripcion_"].Value);
+                txt_Sexo.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["descripcion_sx"].Value);
                 //
-                txt_direccion.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["direccion_pv"].Value);
+                txt_Direccion.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["direccion_pv"].Value);
                 this.codigo_dis = Convert.ToInt32(dataGridViewListado.CurrentRow.Cells["codigo_dis"].Value);
 
-                ciudad = Convert.ToString(dataGridViewListado.CurrentRow.Cells["descripcion_dis"].Value).Trim()+
-                         Convert.ToString(dataGridViewListado.CurrentRow.Cells["descripcion_po"].Value).Trim()+
-                         Convert.ToString(dataGridViewListado.CurrentRow.Cells["descripcion_de"].Value).Trim();
-                //
+                    ciudad =
+                    Convert.ToString(dataGridViewListado.CurrentRow.Cells["descripcion_dis"].Value).Trim() + '/'+
+                    Convert.ToString(dataGridViewListado.CurrentRow.Cells["descripcion_po"].Value).Trim() +  '/'+
+                    Convert.ToString(dataGridViewListado.CurrentRow.Cells["descripcion_de"].Value).Trim();
                 txt_ciudad.Text = ciudad;
-                txt_comentario.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["observacion_pv"].Value).Trim();
-
+                txt_Comentario.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["observacion_pv"].Value).Trim();
+                //roupBox_Detalle.Visible = true;
 
             }
         }
 
- 
+        //
+       
+
+
+        private void  EstadoTexto(bool lestado)
+        {
+            txt_NumeroD.ReadOnly = !lestado;
+            txt_RazonS.ReadOnly = !lestado;
+            txt_Nombres.ReadOnly = !lestado;
+            txt_Apellidos.ReadOnly = !lestado;
+            txt_correo.ReadOnly = !lestado;
+            txt_telefono.ReadOnly = !lestado;
+            txt_cel.ReadOnly = !lestado;
+            txt_Direccion.ReadOnly = !lestado;
+            txt_Comentario.ReadOnly = !lestado;
+        }
+
+
+        private void LimpiaTexto()
+        {
+            txt_TipoD.Text = "";
+            txt_Sexo.Text = "";
+            txt_rubro.Text = "";
+            txt_ciudad.Text = "";
+
+            txt_NumeroD.Text = "";
+            txt_RazonS.Text = "";
+            txt_Nombres.Text = "";
+            txt_Apellidos.Text = "";
+            txt_correo.Text = "";
+            txt_telefono.Text = "";
+            txt_cel.Text = "";
+            txt_Direccion.Text = "";
+            txt_Comentario.Text = "";
+        }
+
+
+
+
 
 
         //boton agregar nuevo registro
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-           //Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = true;
-           // groupBox_Detalle.Visible = false;
             EstadoGuarda = 1; //nuevo registro
+
+            Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = true;
+            this.LimpiaTexto();
+            this.EstadoTexto(true);
+       
             this.Estado_BotonesPrincipales(false);
             this.Estado_BotonesProcesos(true);
-            //definir
-            this.Limpia_texto();
-            this.Estado_texto(true);
             Tc_Marcas.SelectedIndex = 1;
-            txt_nd.Focus();
-            
+
+
         }
 
         //boton actualizar
         private void btn_actualizar_Click(object sender, EventArgs e)
         {
-/*
             Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = true;
-            groupBox_Detalle.Visible = false;
-            EstadoGuarda = 2; //actualizar registro
+            EstadoGuarda = 2; //ACTUALIZAR registro
             this.Estado_BotonesPrincipales(false);
             this.Estado_BotonesProcesos(true);
+            this.EstadoTexto(true);
             Tc_Marcas.SelectedIndex = 1;
+           txt_NumeroD.Focus();
             this.Seleciona_item();
-            txt_td.ReadOnly = false;
-            txt_td.Focus();
-*/
+
         }
 
         //boton cancelar
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-        /*    EstadoGuarda = 0; //no hace nada 
-            this.codigo_p = 0;
-            txt_td.Text = "";
-            txt_nd.Text = "";
+            this.codigo_pv = 0;
+            this.codigo_pc = 0;
+            this.codigo_sx = 0;
+            this.codigo_rb = 0;
+            this.codigo_dis = 0;
 
-            txt_a.Text = "0";
-            txt_n.Text = "0";
-
-            txt_a.ReadOnly = true;
-            txt_n.ReadOnly = true;
-
-            groupBox_Detalle.Visible = false;
-
-            txt_td.ReadOnly = true;
+            this.EstadoTexto(false);
+            this.LimpiaTexto();
             this.Estado_BotonesPrincipales(true);
             this.Estado_BotonesProcesos(false);
             Tc_Marcas.SelectedIndex = 0;
-            Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = false;
-        */
         }
 
         //Doble clic en el DataGrid para visualizar un registro
         private void dataGridViewListado_DoubleClick(object sender, EventArgs e)
         {
-          /*  Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = true;
+          
             this.Seleciona_item();
             this.Estado_BotonesProcesos(false);
-            this.Tc_Marcas.SelectedIndex = 1;
-            this.Listado_stock_actual(this.codigo_p);
-            groupBox_Detalle.Visible = true;
-          */
+            Tc_Marcas.SelectedIndex = 1;
+            Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = true;
+            btn_regresar.Enabled = true;
         }
 
         //boton de regreso
         private void btn_regresar_Click(object sender, EventArgs e)
         {
+
             this.Estado_BotonesProcesos(false);
-            Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = false;
+          //  Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = false;
             Tc_Marcas.SelectedIndex = 0;
-            this.codigo_pv = 0;
-         //   groupBox_Detalle.Visible = false;*/
+               this.LimpiaTexto();
+       
         }
 
         //boton para eliminar
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrEmpty(Convert.ToString(dataGridViewListado.CurrentRow.Cells["codigo_p"].Value)))
+            if (string.IsNullOrEmpty(Convert.ToString(dataGridViewListado.CurrentRow.Cells["codigo_pv"].Value)))
             {
                 MessageBox.Show("No existe informacion para visualizar", "Aviso del sistema,", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -512,19 +512,19 @@ namespace Minimarket
                 DialogResult Opcion;
                 Opcion = MessageBox.Show("Estas seguro que deseas eliminar este registro", "Aviso del sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-               /* if (Opcion == DialogResult.Yes)
+                if (Opcion == DialogResult.Yes)
                 {
                     string respuesta = "";
-                    this.codigo_p = Convert.ToInt32(dataGridViewListado.CurrentRow.Cells["codigo_p"].Value);
-                    respuesta = N_Productos.Eliminar_p(this.codigo_p);
+                    this.codigo_pv = Convert.ToInt32(dataGridViewListado.CurrentRow.Cells["codigo_pv"].Value);
+                    respuesta = N_Proveedores.Eliminar_pv(this.codigo_pv);
 
                     if (respuesta.Equals("OK"))
                     {
-                        this.Listado_p("%");
-                        this.codigo_p = 0;
+                        this.Listado_pv("%");
+                        this.codigo_pv = 0;
                         MessageBox.Show("Registro eliminado", "Aviso del sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                }*/
+                }
             }
         }
 
@@ -564,22 +564,22 @@ namespace Minimarket
         //generar reportes
         private void btn_report_Click(object sender, EventArgs e)
         {
-            // Reportes.Frm_Reportes_Almacen oReporte3 = new Reportes.Frm_Reportes_Almacen();
-            // oReporte3.txt_Reportes.Text = dataGridViewListado.Text;
-            //  oReporte3.ShowDialog();
+             Reportes.Frm_Reportes_pv oReporte_PV = new Reportes.Frm_Reportes_pv();
+             oReporte_PV.txt_reportes.Text = dataGridViewListado.Text;
+              oReporte_PV.ShowDialog();
 
         }
 
         //Buscar 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
-          //  this.Listado_p(txt_Buscar.Text.Trim());
+            this.Listado_pv(txt_Buscar.Text.Trim());
         }
 
         //Refrescar los registros en el dataGrid
         private void btn_refrescar_Click(object sender, EventArgs e)
         {
-        //    this.Listado_p(dataGridViewListado.Text.Trim());
+            this.Listado_pv(dataGridViewListado.Text.Trim());
         }
 
         //boton para cerrar el sistema
@@ -588,97 +588,38 @@ namespace Minimarket
             Application.Exit();
         }
 
+        //tipo de documento
         private void btn_lupa_Click(object sender, EventArgs e)
         {
-            this.panel_Listado_td.Visible = true;
-          //  this.panel_Listado_marca.Location = btn_lupa.Location;
+            
+            this.panel_listado_td.Location = btn_lupa_TD.Location;
+            this.panel_listado_td.Visible = true;
             btn_guardar.Enabled = false;
             btn_cancelar.Enabled = false;
         }
 
-        private void dataGridView_td_DoubleClick(object sender, EventArgs e)
+        private void dataGridViewTD_DoubleClick(object sender, EventArgs e)
         {
-            this.Seleciona_item_pc();
-            panel_Listado_td.Visible = false;
+
+
+            this.Seleciona_pc();
+            panel_listado_td.Visible = false;
             btn_guardar.Enabled = true;
             btn_cancelar.Enabled = true;
         }
 
-        private void btn_lupa_medida_Click(object sender, EventArgs e)
-        {
-            this.panel_listado_sx.Visible = true;
-          //  this.panel_listado_um.Location = btn_lupa_medida.Location;
-            btn_guardar.Enabled = false;
-            btn_cancelar.Enabled = false;
-        }
+    
 
-        private void btn_marca_Click(object sender, EventArgs e)
-        {
-           // this.Listado_m(txt_m_l_marca.Text);
-        }
-
-        private void btn_buscar_um_Click(object sender, EventArgs e)
-        {
-           // this.Listado_um_p(txt_m_b_um.Text);
-        }
-
-        private void btn_marca_retornar_Click(object sender, EventArgs e)
-        {
-            panel_Listado_td.Visible = false;
-            btn_guardar.Enabled = true;
-            btn_cancelar.Enabled = true;
-
-        }
-
-        private void btn_um_retornar_Click(object sender, EventArgs e)
-        {
-            panel_listado_sx.Visible = false;
-            btn_guardar.Enabled = true;
-            btn_cancelar.Enabled = true;
-        }
-
-        private void dataGridViewsx_DoubleClick(object sender, EventArgs e)
-        {
-           this.Seleciona_item_sx();
-            panel_listado_sx.Visible = false;
-            btn_guardar.Enabled = true;
-            btn_cancelar.Enabled = true;
-        }
-
-
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.panel_listado_rb.Visible = true;
-           // this.panel_listado_ca.Location = btn_lupa_medida.Location;
-            btn_guardar.Enabled = false;
-            btn_cancelar.Enabled = false;
-        }
-
-        private void dataGridViewRB_DoubleClick(object sender, EventArgs e)
-        {
-            this.Seleciona_item_rb();
-            panel_listado_rb.Visible = false;
-            btn_guardar.Enabled = true;
-            btn_cancelar.Enabled = true;
-        }
 
 
         //retornar panel categorias
         private void btn_m_regredar_ca_Click(object sender, EventArgs e)
         {
-            panel_listado_rb.Visible = false;
+            panel_listado_td.Visible = false;
             btn_guardar.Enabled = true;
             btn_cancelar.Enabled = true;
         }
-
-        private void btn_b_m_ca_Click(object sender, EventArgs e)
-        {
-            this.Listado_rb(txt_m_rb.Text);
-            //this.Listado_ca_p(txt_m_b_um.Text);
-        }
-
-     
+   
 
         private void dataGridViewListado_Click(object sender, EventArgs e)
         {
@@ -686,55 +627,84 @@ namespace Minimarket
             btn_eliminar.Enabled = true;
         }
 
-        private void btn_lupa_td_Click(object sender, EventArgs e)
+        private void btn_lupa_SX_Click(object sender, EventArgs e)
+        {
+            this.PANELSX.Location = btn_lupa_SX.Location;
+            this.PANELSX.Visible = true;
+            btn_guardar.Enabled = false;
+            btn_cancelar.Enabled = false;
+        }
+
+        private void dataGridViewSX_DoubleClick(object sender, EventArgs e)
+        {
+            this.Seleciona_sx();
+            PANELSX.Visible = false;
+            btn_guardar.Enabled = true;
+            btn_cancelar.Enabled = true;
+        }
+
+        private void btn_lupa_rubro_Click(object sender, EventArgs e)
+        {
+            this.panel_rubro.Location = btn_lupa_rubro.Location;
+            this.panel_rubro.Visible = true;
+            btn_guardar.Enabled = false;
+            btn_cancelar.Enabled = false;
+        }
+
+        private void data_rubro_DoubleClick(object sender, EventArgs e)
+        {
+            this.Seleciona_rubro();
+            panel_rubro.Visible = false;
+            btn_guardar.Enabled = true;
+            btn_cancelar.Enabled = true;
+        }
+
+        private void btn_regresar_sx_Click(object sender, EventArgs e)
+        {
+            PANELSX.Visible = false;
+            btn_guardar.Enabled = true;
+            btn_cancelar.Enabled = true;
+        }
+
+        private void btn_regresar_rb_Click(object sender, EventArgs e)
+        {
+            panel_rubro.Visible = false;
+            btn_guardar.Enabled = true;
+            btn_cancelar.Enabled = true;
+        }
+
+        private void btn_regresar_c_Click(object sender, EventArgs e)
+        {
+            panel_ciudad.Visible = false;
+            btn_guardar.Enabled = true;
+            btn_cancelar.Enabled = true;
+        }
+
+        private void btn_lupa_c_Click(object sender, EventArgs e)
         {
             
-            this.panel_Listado_td.Location = btn_lupa_td.Location;
-            panel_Listado_td.Visible = true;
+                // Definir la posición del panel a la izquierda del botón
+                int panelWidth = panel_ciudad.Width; // Ancho del panel
+                int panelX = btn_lupa_c.Location.X - panelWidth - 5; // Ajuste de 5 píxeles para separación
+                int panelY = btn_lupa_c.Location.Y;
+
+                // Ubicar el panel al lado izquierdo del botón
+                panel_ciudad.Location = new Point(panelX, panelY);
+
+                // Hacer visible el panel
+                panel_ciudad.Visible = true;
+            
+
+            btn_guardar.Enabled = false;
+            btn_cancelar.Enabled = false;
         }
 
-        private void btn_lupa_sx_Click(object sender, EventArgs e)
+        private void dataGridView_C_DoubleClick(object sender, EventArgs e)
         {
-            this.panel_listado_sx.Location = btn_lupa_sx.Location;
-            panel_listado_sx.Visible = true;
-        }
-
-        private void btn_lupa_rb_Click(object sender, EventArgs e)
-        {
-          
-            this.panel_listado_rb.Location = btn_lupa_rb.Location;
-            panel_listado_rb.Visible = true;
-        }
-
-        private void btn_lupa_ciudades_Click(object sender, EventArgs e)
-        {
-            // Obtener la posición del botón
-            int buttonX = btn_lupa_ciudades.Location.X;
-
-            // Establecer la ubicación del panel a la izquierda del botón
-            panel_Listado_ciudades.Location = new Point(buttonX - panel_Listado_ciudades.Width, panel_Listado_ciudades.Location.Y);
-
-            panel_Listado_ciudades.Visible = true;
-        }
-
-        private void btn_regredar_c_Click(object sender, EventArgs e)
-        {
-            panel_Listado_ciudades.Visible = false;
+            this.Seleciona_c();
+            panel_ciudad.Visible = false;
             btn_guardar.Enabled = true;
             btn_cancelar.Enabled = true;
-        }
-
-        private void dataGridViewCiudades_DoubleClick(object sender, EventArgs e)
-        {
-            this.Seleciona_item_dis();
-            panel_Listado_ciudades.Visible = false;
-            btn_guardar.Enabled = true;
-            btn_cancelar.Enabled = true;
-        }
-
-        private void btn_buscar_c_Click(object sender, EventArgs e)
-        {
-            this.Listado_dis_pv(txt_buscar_ci.Text);
         }
     }
 }

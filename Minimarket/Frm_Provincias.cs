@@ -17,6 +17,7 @@ namespace Minimarket
     {
         public Frm_Provincias()
         {
+
             //Desabiliatar casilla de mantenimiento 
             InitializeComponent();
             Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = false;
@@ -28,7 +29,7 @@ namespace Minimarket
         #region "Variables"
         int codigo_po = 0;
         int codigo_de = 0;
-        int EstadoGuarda = 0; //
+        int EstadoGuarda = 0; 
         #endregion
 
         #region"Metodos"
@@ -146,46 +147,45 @@ namespace Minimarket
          
         }
 
-private void btn_guardar_Click(object sender, EventArgs e)
-{
-    if (txt_descripcion_de.Text == String.Empty || txt_Provincia.Text == String.Empty)
-    {
-        MessageBox.Show("No se ha ingresado ningún dato (*)", "Aviso del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    }
-    else // Registrar información
-    {
-        E_Provincias oPo = new E_Provincias();
-        string respuesta = "";
-        oPo.codigo_po = this.codigo_po;
-        oPo.descripcion_po = txt_Provincia.Text.Trim();
-        oPo.codigo_de = this.codigo_de;
-        
-        // Actualizar el valor de nOpcion dependiendo de si es un nuevo registro o una actualización
-        int nOpcion = (this.codigo_po == 0) ? 1 : 2;
-        
-        respuesta = N_Provincias.Guardar_po(nOpcion, oPo);
-        if (respuesta == "OK")
+        private void btn_guardar_Click(object sender, EventArgs e)
         {
-            this.Listado_po("%");
-            MessageBox.Show("Datos guardados correctamente", "Aviso del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            EstadoGuarda = 0; // No hace nada al cumplir la tarea
-            this.Estado_BotonesPrincipales(true);
-            Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = false;
-            this.Estado_BotonesProcesos(false);
-            txt_Provincia.Text = "";
-            txt_Provincia.ReadOnly = true;
-            Tc_Marcas.SelectedIndex = 0;
-            this.codigo_po = 0;
+            if (txt_Provincia.Text == String.Empty &&
+                txt_descripcion_de.Text == String.Empty)
+            {
+                MessageBox.Show("No se ha ingresado ningun dato (*)", "Aviso del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else // Registrar informacion
+            {
+                E_Provincias oPo = new E_Provincias();
+                string respuesta = "";
+                oPo.codigo_po = this.codigo_po;
+                oPo.descripcion_po = txt_Provincia.Text.Trim();
+                oPo.codigo_de = this.codigo_de;
+                respuesta = N_Provincias.Guardar_po(EstadoGuarda, oPo);
+                if (respuesta == "OK")
+                {
+                    this.Listado_po("%");
+                    MessageBox.Show("Datos guardados Corresctamente", "Aviso del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    EstadoGuarda = 0;//no hace nada al cumplir la tarea
+                    this.Estado_BotonesPrincipales(true);
+                    Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = false;
+                    this.Estado_BotonesProcesos(false);
+                   // txt_Departamento.Text = "";
+                    //txt_Departamento.ReadOnly = true;
+                    Tc_Marcas.SelectedIndex = 0;
+                    this.codigo_de = 0;
+
+                }
+                else
+                {
+                    MessageBox.Show(respuesta, "Aviso del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
         }
-        else
-        {
-            MessageBox.Show(respuesta, "Aviso del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-    }
-}
 
 
-       
+
         //boton agregar nuevo registro
         private void btn_nuevo_Click(object sender, EventArgs e)
         {

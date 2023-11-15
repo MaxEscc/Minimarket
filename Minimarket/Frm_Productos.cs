@@ -479,9 +479,9 @@ namespace Minimarket
         //generar reportes
         private void btn_report_Click(object sender, EventArgs e)
         {
-            // Reportes.Frm_Reportes_Almacen oReporte3 = new Reportes.Frm_Reportes_Almacen();
-            // oReporte3.txt_Reportes.Text = dataGridViewListado.Text;
-            //  oReporte3.ShowDialog();
+             Reportes.Frm_Productos_re oReporte_p = new Reportes.Frm_Productos_re();
+             oReporte_p.txt_Reportes.Text = dataGridViewListado.Text;
+              oReporte_p.ShowDialog();
 
         }
 

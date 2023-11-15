@@ -169,3 +169,5 @@ C:\Users\Max_j\OneDrive\Escritorio\Max\Minimarket\Minimarket\obj\Debug\Minimarke
 C:\Users\Max_j\OneDrive\Escritorio\Max\Minimarket\Minimarket\obj\Debug\Minimarket.Reportes.frm_Provincias.resources
 C:\Users\Max_j\OneDrive\Escritorio\Max\Minimarket\Minimarket\obj\Debug\Minimarket.Frm_Distritos.resources
 C:\Users\Max_j\OneDrive\Escritorio\Max\Minimarket\Minimarket\obj\Debug\Minimarket.Frm_Proveedores.resources
+C:\Users\Max_j\OneDrive\Escritorio\Max\Minimarket\Minimarket\obj\Debug\Minimarket.Reportes.Frm_Reportes_pv.resources
+C:\Users\Max_j\OneDrive\Escritorio\Max\Minimarket\Minimarket\obj\Debug\Minimarket.Reportes.Frm_Productos_re.resources

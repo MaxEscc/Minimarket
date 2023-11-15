@@ -12,5 +12,9 @@ namespace MinimarketEntidades
         public string descripcion_dis { get; set; }
 
         public int codigo_po { get; set; }
+
+        public int codigo_de { get; set; }
+
+
     }
 }

@@ -31,13 +31,15 @@ namespace MinimarketNegocio
         public static DataTable Listado_pc()
         {
             D_Proveedores Datos = new D_Proveedores();
-            return Datos.Listado_pc ();
+            return Datos.Listado_pc();
         }
+
         public static DataTable Listado_sx()
         {
             D_Proveedores Datos = new D_Proveedores();
             return Datos.Listado_sx();
         }
+
         public static DataTable Listado_rb_pv(string cTexto)
         {
             D_Proveedores Datos = new D_Proveedores();

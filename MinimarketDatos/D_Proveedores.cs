@@ -50,7 +50,7 @@ namespace MinimarketDatos
                 SqlCommand Comando = new SqlCommand("USP_Guardar_pv", SqlCon);
                 Comando.CommandType = CommandType.StoredProcedure;
                 Comando.Parameters.Add("@nOpcion", SqlDbType.Int).Value = nOpcion;
-                Comando.Parameters.Add("@nCodigo_p", SqlDbType.Int).Value = oPv.codigo_pv;
+                Comando.Parameters.Add("@nCodigo_pv", SqlDbType.Int).Value = oPv.codigo_pv;
                 Comando.Parameters.Add("@nCodigo_pc", SqlDbType.Int).Value = oPv.codigo_pc;
                 Comando.Parameters.Add("@cNrodocumentopv", SqlDbType.VarChar).Value = oPv.nrodocumentopv;
                 Comando.Parameters.Add("@cRazon_social_pv", SqlDbType.VarChar).Value = oPv.razon_social_pv;
@@ -61,9 +61,11 @@ namespace MinimarketDatos
                 Comando.Parameters.Add("@cEmail_pv", SqlDbType.VarChar).Value = oPv.email_pv;
                 Comando.Parameters.Add("@cTelefono_pv", SqlDbType.VarChar).Value = oPv.telefono_pv;
                 Comando.Parameters.Add("@cMovil_pv", SqlDbType.VarChar).Value = oPv.movil_pv;
-                Comando.Parameters.Add("@cDireccion", SqlDbType.Text).Value = oPv.direccion_pv;
+                Comando.Parameters.Add("@cDireccion_pv", SqlDbType.VarChar).Value = oPv.direccion_pv;
                 Comando.Parameters.Add("@nCodigo_dis", SqlDbType.Int).Value = oPv.codigo_dis;
-                Comando.Parameters.Add("@cOdservacion_pv", SqlDbType.Text).Value = oPv.odservacion_pv;
+                Comando.Parameters.Add("@cObservacion_pv", SqlDbType.VarChar).Value = oPv.observacion_pv;
+
+
 
                 SqlCon.Open();
                 Respuesta = Comando.ExecuteNonQuery() >= 1 ? "OK" : "NO SE PUDO REGISTRAR LOS DATOS";
@@ -108,7 +110,7 @@ namespace MinimarketDatos
             return Respuesta;
         }
 
-        public DataTable Listado_pc( )
+        public DataTable Listado_pc()  
         {
             SqlDataReader Resultado;
             DataTable Tabla = new DataTable();
@@ -119,7 +121,7 @@ namespace MinimarketDatos
                 SQLCon = Conexion.getInstancia().CrearConexion();
                 SqlCommand Comando = new SqlCommand("USP_Listado_pc", SQLCon);
                 Comando.CommandType = CommandType.StoredProcedure;
-        
+              
                 SQLCon.Open();
                 Resultado = Comando.ExecuteReader();
                 Tabla.Load(Resultado);
@@ -135,6 +137,7 @@ namespace MinimarketDatos
                 if (SQLCon.State == ConnectionState.Open) SQLCon.Close();
             }
         }
+
 
         public DataTable Listado_sx()
         {
@@ -147,7 +150,7 @@ namespace MinimarketDatos
                 SQLCon = Conexion.getInstancia().CrearConexion();
                 SqlCommand Comando = new SqlCommand("USP_Listado_sx", SQLCon);
                 Comando.CommandType = CommandType.StoredProcedure;
-          
+
                 SQLCon.Open();
                 Resultado = Comando.ExecuteReader();
                 Tabla.Load(Resultado);
@@ -163,6 +166,11 @@ namespace MinimarketDatos
                 if (SQLCon.State == ConnectionState.Open) SQLCon.Close();
             }
         }
+
+
+
+
+
 
         public DataTable Listado_rb_pv(string cTexto)
         {
@@ -220,6 +228,7 @@ namespace MinimarketDatos
                 if (SQLCon.State == ConnectionState.Open) SQLCon.Close();
             }
         }
+
 
     }
 }
