@@ -47,6 +47,7 @@
     <Compile Include="D_Categorias.cs" />
     <Compile Include="D_Departamento.cs" />
     <Compile Include="D_Distritos.cs" />
+    <Compile Include="D_E_Productos.cs" />
     <Compile Include="D_Marcas.cs" />
     <Compile Include="D_Productos.cs" />
     <Compile Include="D_Proveedores.cs" />
