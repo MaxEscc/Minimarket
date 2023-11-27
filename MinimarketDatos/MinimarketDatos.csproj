@@ -45,6 +45,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="D_Almacen.cs" />
     <Compile Include="D_Categorias.cs" />
+    <Compile Include="D_Clientes.cs" />
     <Compile Include="D_Departamento.cs" />
     <Compile Include="D_Distritos.cs" />
     <Compile Include="D_E_Productos.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="D_Proveedores.cs" />
     <Compile Include="D_Provincias.cs" />
     <Compile Include="D_Rubro.cs" />
+    <Compile Include="D_S_Productos.cs" />
     <Compile Include="D_Unidades_Medidas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

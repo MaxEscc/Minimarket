@@ -271,9 +271,23 @@ namespace Minimarket
         //generar reportes
         private void btn_report_Click(object sender, EventArgs e)
         {
-            Reportes.Frm_reportes_M oReporte2 = new Reportes.Frm_reportes_M();
-            oReporte2.txt_reportes.Text = txt_Buscar.Text;
-            oReporte2.ShowDialog();
+
+            // Cuando la caja de texto recibe el foco (haciendo clic en ella), borra el mensaje predeterminado y restaura la opacidad
+            if (txt_Buscar.Text == "Buscar")
+            {
+                txt_Buscar.Text = "";
+
+                Reportes.Frm_reportes_M oReportema = new Reportes.Frm_reportes_M();
+                oReportema.txt_reportes.Text = txt_Buscar.Text;
+                oReportema.ShowDialog();
+            }
+            else
+            {
+                Reportes.Frm_reportes_M oReportema = new Reportes.Frm_reportes_M();
+                oReportema.txt_reportes.Text = txt_Buscar.Text;
+                oReportema.ShowDialog();
+                
+            }
 
         }
 

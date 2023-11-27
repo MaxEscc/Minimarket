@@ -101,7 +101,7 @@ namespace Minimarket
             this.txt_E_TD = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_nuevo = new System.Windows.Forms.Button();
-            this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_anular = new System.Windows.Forms.Button();
             this.btn_report = new System.Windows.Forms.Button();
             this.btn_salir = new System.Windows.Forms.Button();
             this.Tc_Marcas.SuspendLayout();
@@ -890,23 +890,23 @@ namespace Minimarket
             this.btn_nuevo.UseVisualStyleBackColor = true;
             this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
-            // btn_eliminar
+            // btn_anular
             // 
-            this.btn_eliminar.AutoSize = true;
-            this.btn_eliminar.Enabled = false;
-            this.btn_eliminar.FlatAppearance.BorderSize = 0;
-            this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_eliminar.ImageKey = "eliminar-producto.png";
-            this.btn_eliminar.ImageList = this.imageList1;
-            this.btn_eliminar.Location = new System.Drawing.Point(126, 684);
-            this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(82, 98);
-            this.btn_eliminar.TabIndex = 6;
-            this.btn_eliminar.Text = "Eliminar";
-            this.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_eliminar.UseVisualStyleBackColor = true;
-            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            this.btn_anular.AutoSize = true;
+            this.btn_anular.Enabled = false;
+            this.btn_anular.FlatAppearance.BorderSize = 0;
+            this.btn_anular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_anular.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_anular.ImageKey = "eliminar-producto.png";
+            this.btn_anular.ImageList = this.imageList1;
+            this.btn_anular.Location = new System.Drawing.Point(126, 684);
+            this.btn_anular.Name = "btn_anular";
+            this.btn_anular.Size = new System.Drawing.Size(82, 98);
+            this.btn_anular.TabIndex = 6;
+            this.btn_anular.Text = "Anular";
+            this.btn_anular.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_anular.UseVisualStyleBackColor = true;
+            this.btn_anular.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_report
             // 
@@ -950,7 +950,7 @@ namespace Minimarket
             this.ClientSize = new System.Drawing.Size(1513, 796);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_report);
-            this.Controls.Add(this.btn_eliminar);
+            this.Controls.Add(this.btn_anular);
             this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.Tc_Marcas);
             this.Name = "Frm_E_Productos";
@@ -987,7 +987,7 @@ namespace Minimarket
         private System.Windows.Forms.TabPage Tp_Mantenimiento;
         private System.Windows.Forms.TextBox txt_Buscar;
         private System.Windows.Forms.Button btn_nuevo;
-        private System.Windows.Forms.Button btn_eliminar;
+        private System.Windows.Forms.Button btn_anular;
         private System.Windows.Forms.Button btn_report;
         private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.Button btn_guardar;

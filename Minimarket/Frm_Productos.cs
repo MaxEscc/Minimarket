@@ -36,25 +36,24 @@ namespace Minimarket
         #region"Metodos"
         private void Formato_p()
         {
-            dataGridViewListado.Columns[0].Width = 50;
+            dataGridViewListado.Columns[0].Width = 20;
             dataGridViewListado.Columns[0].HeaderText = "CODIGO_P";
-            dataGridViewListado.Columns[1].Width = 100;
+            dataGridViewListado.Columns[1].Width = 50;
             dataGridViewListado.Columns[1].HeaderText = "PRODUCTOS";
-            //
-            dataGridViewListado.Columns[2].Width = 100;
+            dataGridViewListado.Columns[2].Width = 50;
             dataGridViewListado.Columns[2].HeaderText = "MARCA";
-            dataGridViewListado.Columns[3].Width = 100;
-            dataGridViewListado.Columns[3].HeaderText = "UM";
-            dataGridViewListado.Columns[4].Width = 100;
+            dataGridViewListado.Columns[3].Width = 50;
+            dataGridViewListado.Columns[3].HeaderText = "CODIGO_UM";
+            dataGridViewListado.Columns[4].Width = 50;
             dataGridViewListado.Columns[4].HeaderText = "CATEGORIA";
-            dataGridViewListado.Columns[5].Width = 70;
+            dataGridViewListado.Columns[5].Width = 20;
             dataGridViewListado.Columns[5].HeaderText = "STOCK_MIN";
-            dataGridViewListado.Columns[6].Width = 70;
+            dataGridViewListado.Columns[6].Width = 30;
             dataGridViewListado.Columns[6].HeaderText = "STOCK_MAX";
             dataGridViewListado.Columns[7].Visible = false;
-
             dataGridViewListado.Columns[8].Visible = false;
             dataGridViewListado.Columns[9].Visible = false;
+            dataGridViewListado.Columns[10].Visible = false;
         }
         private void Listado_p(string cTexto)
         {
@@ -118,7 +117,6 @@ namespace Minimarket
         }
 
 
-
         private void Frm_Productos_Load(object sender, EventArgs e)
         {
             this.Listado_p("%");
@@ -156,6 +154,7 @@ namespace Minimarket
             if (txt_m_descripcion.Text == String.Empty ||
                 txt_marca.Text == String.Empty ||
                 txt_m_um.Text == String.Empty ||
+                txt_venta.Text == String.Empty ||
                 txt_m_ca.Text == String.Empty)
             {
                 MessageBox.Show("No se ha ingresado ningun dato (*)", "Aviso del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -172,6 +171,7 @@ namespace Minimarket
                 oPr.codigo_ca = this.codigo_ca;
                 oPr.stock_min = Convert.ToDecimal(txt_StockMin.Text);
                 oPr.stock_max = Convert.ToDecimal(txt_StockMax.Text);
+                oPr.pu_venta = Convert.ToDecimal(txt_venta.Text);
 
                 respuesta = N_Productos.Guardar_p(EstadoGuarda, oPr);
                 if (respuesta == "OK")
@@ -185,12 +185,16 @@ namespace Minimarket
                     txt_m_descripcion.Text = "";
                     txt_StockMin.Text = "0";
                     txt_StockMax.Text = "0";
+                    txt_venta.Text = "0";
                     txt_StockMin.ReadOnly = true;
                     txt_StockMax.ReadOnly = true;
+                    txt_venta.ReadOnly = true;
                     txt_m_descripcion.ReadOnly = true;
                     Tc_Marcas.SelectedIndex = 0;
                     this.codigo_p = 0;
                     groupBox_Detalle.Visible = false;
+
+                    LimpiaTexto();
 
                 }
                 else
@@ -219,6 +223,16 @@ namespace Minimarket
             this.btn_regresar.Visible = !lEstado;
         }
 
+        private void LimpiaTexto()
+        {
+            txt_m_descripcion.Text = "";
+            txt_marca.Text = "";
+            txt_m_um.Text = "";
+            txt_m_ca.Text = "";
+            txt_StockMin.Text = "";
+            txt_StockMax.Text = "";
+        }
+
         //metodo para seleccionar el item 
         private void Seleciona_item()
         {
@@ -244,6 +258,8 @@ namespace Minimarket
                 //
                 txt_StockMin.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["stock_min"].Value);
                 txt_StockMax.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["stock_max"].Value);
+
+                txt_venta.Text = Convert.ToString(dataGridViewListado.CurrentRow.Cells["pu_venta"].Value);
                 //
                 groupBox_Detalle.Visible = true;
 
@@ -345,12 +361,14 @@ namespace Minimarket
             this.Estado_BotonesPrincipales(false);
             this.Estado_BotonesProcesos(true);
 
-            txt_m_descripcion.Text = "";
+          
             txt_StockMin.Text = "0";
             txt_StockMax.Text = "0";
+            txt_venta.Text = "0";
             txt_m_descripcion.ReadOnly = false;
             txt_StockMin.ReadOnly = false;
             txt_StockMax.ReadOnly = false;
+            txt_venta.ReadOnly = false;
             Tc_Marcas.SelectedIndex = 1;
             txt_m_descripcion.Focus();
         }
@@ -358,17 +376,17 @@ namespace Minimarket
         //boton actualizar
         private void btn_actualizar_Click(object sender, EventArgs e)
         {
-         
+            this.Seleciona_item();
+            Tc_Marcas.SelectedIndex = 1;
             Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = true;
             groupBox_Detalle.Visible = false;
             EstadoGuarda = 2; //actualizar registro
             this.Estado_BotonesPrincipales(false);
             this.Estado_BotonesProcesos(true);
-            Tc_Marcas.SelectedIndex = 1;
-            this.Seleciona_item();
             txt_m_descripcion.ReadOnly = false;
             txt_m_descripcion.Focus();
         }
+
 
         //boton cancelar
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -380,17 +398,17 @@ namespace Minimarket
 
             txt_StockMin.Text = "0";
             txt_StockMax.Text = "0";
-       
-            txt_StockMin.ReadOnly = true;
-            txt_StockMax.ReadOnly = true;
-
+            txt_venta.Text = "0";
             groupBox_Detalle.Visible = false;
 
+            txt_venta.ReadOnly = true;
             txt_m_descripcion.ReadOnly = true;
             this.Estado_BotonesPrincipales(true);
             this.Estado_BotonesProcesos(false);
             Tc_Marcas.SelectedIndex = 0;
             Tc_Marcas.TabPages["Tp_Mantenimiento"].Enabled = false;
+
+            LimpiaTexto();
         }
 
         //Doble clic en el DataGrid para visualizar un registro
@@ -412,6 +430,7 @@ namespace Minimarket
             Tc_Marcas.SelectedIndex = 0;
             this.codigo_p = 0;
             groupBox_Detalle.Visible = false;
+            LimpiaTexto();
         }
 
         //boton para eliminar
@@ -592,15 +611,17 @@ namespace Minimarket
             this.Listado_ca_p(txt_m_b_um.Text);
         }
 
-        private void dataGridViewListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void dataGridViewListado_Click(object sender, EventArgs e)
         {
-            btn_actualizar.Enabled = true;
-            btn_eliminar.Enabled = true;
+            
+            //btn_actualizar.Enabled = true;
+           // btn_eliminar.Enabled = true;
+        }
+
+        private void Tp_Mantenimiento_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

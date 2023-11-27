@@ -222,15 +222,8 @@ namespace Minimarket
                 txt_ciudad.Text = Convert.ToString(dataGridView_C.CurrentRow.Cells["descripcion_dis"].Value) + '/' +
                                   Convert.ToString(dataGridView_C.CurrentRow.Cells["descripcion_po"].Value) + '/' +
                                    Convert.ToString(dataGridView_C.CurrentRow.Cells["descripcion_de"].Value);
-
-
-
             }
         }
-
-
-
-
 
         private void Frm_Proveedores_Load(object sender, EventArgs e)
         {
@@ -259,9 +252,6 @@ namespace Minimarket
             btn_cancelar.Cursor = Cursors.Hand;
             btn_guardar.Cursor = Cursors.Hand;
             btn_regresar.Cursor = Cursors.Hand;
-
-
-            //
 
         }
 

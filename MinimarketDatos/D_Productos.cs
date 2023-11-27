@@ -52,12 +52,12 @@ namespace MinimarketDatos
                 Comando.Parameters.Add("@nOpcion", SqlDbType.Int).Value = nOpcion;
                 Comando.Parameters.Add("@nCodigo_p", SqlDbType.Int).Value = oPr.codigo_p;
                 Comando.Parameters.Add("@cDescripcion_p", SqlDbType.VarChar).Value = oPr.descripcion_p;
-                //
                 Comando.Parameters.Add("@nCodigo_m", SqlDbType.Int).Value = oPr.codigo_m;
                 Comando.Parameters.Add("@nCodigo_um", SqlDbType.Int).Value = oPr.codigo_um;
                 Comando.Parameters.Add("@nCodigo_ca", SqlDbType.Int).Value = oPr.codigo_ca;
                 Comando.Parameters.Add("@nStock_min", SqlDbType.Decimal).Value = oPr.stock_min;
                 Comando.Parameters.Add("@nStock_max", SqlDbType.Decimal).Value = oPr.stock_max;
+                Comando.Parameters.Add("@nPu_venta", SqlDbType.Decimal).Value = oPr.pu_venta;
 
 
                 SqlCon.Open();

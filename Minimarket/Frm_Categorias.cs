@@ -137,13 +137,13 @@ namespace Minimarket
         //metodo para seleccionar el item 
         private void Seleciona_item()
         {
-            if (string.IsNullOrEmpty(Convert.ToString(dataGridView1.CurrentRow.Cells["Codigo_ca"].Value)))
+            if (string.IsNullOrEmpty(Convert.ToString(dataGridView1.CurrentRow.Cells["codigo_ca"].Value)))
             {
                 MessageBox.Show("No existe informacion para visualizar", "Aviso del sistema,", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                this.Codigo_ca =Convert.ToInt32( dataGridView1.CurrentRow.Cells["Codigo_ca"].Value);
+                this.Codigo_ca =Convert.ToInt32( dataGridView1.CurrentRow.Cells["codigo_ca"].Value);
                 txt_categoria.Text =Convert.ToString(dataGridView1.CurrentRow.Cells["descripcion_ca"].Value);
             }
         }
@@ -211,7 +211,7 @@ namespace Minimarket
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
        
-            if (string.IsNullOrEmpty(Convert.ToString(dataGridView1.CurrentRow.Cells["Codigo_ca"].Value)))
+            if (string.IsNullOrEmpty(Convert.ToString(dataGridView1.CurrentRow.Cells["codigo_ca"].Value)))
             {
                 MessageBox.Show("No existe informacion para visualizar", "Aviso del sistema,", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -223,7 +223,7 @@ namespace Minimarket
                 if (Opcion == DialogResult.Yes)
                 {
                     string  respuesta="";
-                    this.Codigo_ca = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Codigo_ca"].Value);
+                    this.Codigo_ca = Convert.ToInt32(dataGridView1.CurrentRow.Cells["codigo_ca"].Value);
                     respuesta = N_Categorias.Eliminar_ca(this.Codigo_ca);
 
                     if (respuesta.Equals("OK"))

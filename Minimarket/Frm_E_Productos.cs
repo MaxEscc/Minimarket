@@ -312,8 +312,8 @@ namespace Minimarket
             //Manita boton de buscar
             btn_buscar.Cursor = Cursors.Hand;
             btn_nuevo.Cursor = Cursors.Hand;
-            btn_eliminar.Cursor = Cursors.Hand;
-            btn_actualizar.Cursor = Cursors.Hand;
+            btn_anular.Cursor = Cursors.Hand;
+        
             btn_report.Cursor = Cursors.Hand;
             btn_salir.Cursor = Cursors.Hand;
             //botones de procesos
@@ -328,7 +328,7 @@ namespace Minimarket
         {
             this.btn_nuevo.Enabled = lEstado;
    
-            this.btn_eliminar.Enabled = lEstado;
+            this.btn_anular.Enabled = lEstado;
             this.btn_report.Enabled = lEstado;
             this.btn_salir.Enabled = lEstado;
 
@@ -552,26 +552,26 @@ namespace Minimarket
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrEmpty(Convert.ToString(dataGridViewListado.CurrentRow.Cells["codigo_pv"].Value)))
+            if (string.IsNullOrEmpty(Convert.ToString(dataGridViewListado.CurrentRow.Cells["codigo_ep"].Value)))
             {
                 MessageBox.Show("No existe informacion para visualizar", "Aviso del sistema,", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 DialogResult Opcion;
-                Opcion = MessageBox.Show("Estas seguro que deseas eliminar este registro", "Aviso del sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                Opcion = MessageBox.Show("Estas seguro que deseas anular este registro", "Aviso del sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (Opcion == DialogResult.Yes)
                 {
                     string respuesta = "";
-                    this.codigo_pv = Convert.ToInt32(dataGridViewListado.CurrentRow.Cells["codigo_pv"].Value);
-                    respuesta = N_Proveedores.Eliminar_pv(this.codigo_pv);
+                    this.codigo_ep = Convert.ToInt32(dataGridViewListado.CurrentRow.Cells["codigo_ep"].Value);
+                    respuesta = N_E_Productos.Eliminar_ep(this.codigo_ep);
 
                     if (respuesta.Equals("OK"))
                     {
                         this.Listado_ep("%");
-                        this.codigo_pv = 0;
-                        MessageBox.Show("Registro eliminado", "Aviso del sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        this.codigo_ep = 0;
+                        MessageBox.Show("Registro anulado", "Aviso del sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
             }
@@ -613,9 +613,9 @@ namespace Minimarket
         //generar reportes
         private void btn_report_Click(object sender, EventArgs e)
         {
-             Reportes.Frm_Reportes_pv oReporte_PV = new Reportes.Frm_Reportes_pv();
-             oReporte_PV.txt_reportes.Text = dataGridViewListado.Text;
-              oReporte_PV.ShowDialog();
+             Reportes.Frm_E_Productos oReporte_EP = new Reportes.Frm_E_Productos();
+             oReporte_EP.txt_Reportes.Text = dataGridViewListado.Text;
+              oReporte_EP.ShowDialog();
 
         }
 
@@ -651,8 +651,8 @@ namespace Minimarket
 
         private void dataGridViewListado_Click(object sender, EventArgs e)
         {
-            btn_actualizar.Enabled = true;
-            btn_eliminar.Enabled = true;
+     
+            btn_anular.Enabled = true;
         }
 
         
@@ -818,6 +818,9 @@ namespace Minimarket
                     this.Estado_BotonesProcesos(false);
 
                     EstadoTexto(false);
+
+                    dataGridViewD.Columns[3].ReadOnly = true;
+                    dataGridViewD.Columns[4].ReadOnly = true;
                     Tc_Marcas.SelectedIndex = 0;
                     this.codigo_ep = 0;
                     this.codigo_ed = 0;

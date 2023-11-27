@@ -114,6 +114,7 @@ namespace Minimarket
             // 
             // dataGridViewListado
             // 
+            this.dataGridViewListado.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Menu;
             this.dataGridViewListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -329,7 +330,7 @@ namespace Minimarket
             this.btn_salir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_salir.ImageKey = "salir.png";
             this.btn_salir.ImageList = this.imageList1;
-            this.btn_salir.Location = new System.Drawing.Point(482, 412);
+            this.btn_salir.Location = new System.Drawing.Point(478, 412);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(75, 85);
             this.btn_salir.TabIndex = 5;
@@ -343,7 +344,7 @@ namespace Minimarket
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(612, 509);
+            this.ClientSize = new System.Drawing.Size(579, 509);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_report);
             this.Controls.Add(this.btn_eliminar);

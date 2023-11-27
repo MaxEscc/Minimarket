@@ -70,11 +70,23 @@
     <Compile Include="Frm_Distritos.Designer.cs">
       <DependentUpon>Frm_Distritos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_S_Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_S_Productos.Designer.cs">
+      <DependentUpon>Frm_S_Productos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_E_Productos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm_E_Productos.Designer.cs">
       <DependentUpon>Frm_E_Productos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Clientes.Designer.cs">
+      <DependentUpon>Frm_Clientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Proveedores.cs">
       <SubType>Form</SubType>
@@ -146,6 +158,12 @@
     <Compile Include="Reportes\frm_Departamento.Designer.cs">
       <DependentUpon>frm_Departamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\Frm_E_Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Frm_E_Productos.Designer.cs">
+      <DependentUpon>Frm_E_Productos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\Frm_Productos_re.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +187,12 @@
     </Compile>
     <Compile Include="Reportes\Frm_Reportes_ca.Designer.cs">
       <DependentUpon>Frm_Reportes_ca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Frm_Reportes_Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Frm_Reportes_Clientes.Designer.cs">
+      <DependentUpon>Frm_Reportes_Clientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Frm_reportes_M.cs">
       <SubType>Form</SubType>
@@ -198,8 +222,14 @@
     <EmbeddedResource Include="Frm_Distritos.resx">
       <DependentUpon>Frm_Distritos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_S_Productos.resx">
+      <DependentUpon>Frm_S_Productos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_E_Productos.resx">
       <DependentUpon>Frm_E_Productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Clientes.resx">
+      <DependentUpon>Frm_Clientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Proveedores.resx">
       <DependentUpon>Frm_Proveedores.cs</DependentUpon>
@@ -240,6 +270,9 @@
     <EmbeddedResource Include="Reportes\frm_Departamento.resx">
       <DependentUpon>frm_Departamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Frm_E_Productos.resx">
+      <DependentUpon>Frm_E_Productos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Frm_Productos_re.resx">
       <DependentUpon>Frm_Productos_re.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Frm_Reportes_ca.resx">
       <DependentUpon>Frm_Reportes_ca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Frm_Reportes_Clientes.resx">
+      <DependentUpon>Frm_Reportes_Clientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Frm_reportes_M.resx">
       <DependentUpon>Frm_reportes_M.cs</DependentUpon>
@@ -264,7 +300,9 @@
     <EmbeddedResource Include="Reportes\Frm_Rubro.resx">
       <DependentUpon>Frm_Rubro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Report1_Entrada_Productos.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes_Al.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes_Clientes.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes_Departamento.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes_m.rdlc" />
     <EmbeddedResource Include="Reportes\reportes_cs.rdlc" />

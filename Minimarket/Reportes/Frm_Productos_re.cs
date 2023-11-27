@@ -20,7 +20,7 @@ namespace Minimarket.Reportes
         private void Frm_Productos_re_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'data.USP_Listado_p' Puede moverla o quitarla según sea necesario.
-            this.USP_Listado_pTableAdapter.Fill(this.data.USP_Listado_p, cTexto: txt_Reportes.Text);
+          this.USP_Listado_pTableAdapter.Fill(this.data.USP_Listado_p, cTexto: txt_Reportes.Text);
 
             this.reportViewer1.RefreshReport();
         }

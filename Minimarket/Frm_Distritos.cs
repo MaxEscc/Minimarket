@@ -34,14 +34,14 @@ namespace Minimarket
         #region"Metodos"
         private void Formato_dis()
         {
-            dataGridViewListado.Columns[0].Width = 20;
+            dataGridViewListado.Columns[0].Width = 50;
             dataGridViewListado.Columns[0].HeaderText = "CODIGO_Dis";
-            dataGridViewListado.Columns[1].Width = 50;
-            dataGridViewListado.Columns[1].HeaderText = "DISTRITO";
-            dataGridViewListado.Columns[2].Width = 30;
-            dataGridViewListado.Columns[2].HeaderText = "PROVINCIA";
-            dataGridViewListado.Columns[3].Width = 50;
-            dataGridViewListado.Columns[3].HeaderText = "DEPARTAMENTO";
+            dataGridViewListado.Columns[1].Width = 100;
+            dataGridViewListado.Columns[1].HeaderText = "PROVINCIA";
+            dataGridViewListado.Columns[2].Width = 100;
+            dataGridViewListado.Columns[2].HeaderText = "CIUDAD";
+            dataGridViewListado.Columns[3].Width = 100;
+            dataGridViewListado.Columns[3].HeaderText = "ESTADO";
             dataGridViewListado.Columns[4].Visible = false;
 
         }

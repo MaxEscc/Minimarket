@@ -20,5 +20,7 @@ namespace MinimarketEntidades
         public decimal stock_min { get; set; }
 
         public decimal stock_max { get; set; }
+
+        public decimal pu_venta { get; set; }
     }
 }

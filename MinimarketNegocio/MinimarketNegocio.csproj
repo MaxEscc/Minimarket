@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="E_Clientes.cs" />
     <Compile Include="E_Proveedores.cs" />
     <Compile Include="N_Almacen.cs" />
     <Compile Include="N_Categorias.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="N_Productos.cs" />
     <Compile Include="N_Provincias.cs" />
     <Compile Include="N_Rubro.cs" />
+    <Compile Include="N_S_Productos.cs" />
     <Compile Include="N_Unidades_Medidas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

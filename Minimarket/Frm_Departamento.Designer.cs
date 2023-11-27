@@ -352,7 +352,7 @@ namespace Minimarket
             this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.Tc_Marcas);
             this.Name = "Frm_Departamento";
-            this.Text = "Departamento";
+            this.Text = "Estados";
             this.Load += new System.EventHandler(this.Frm_Departamento_Load);
             this.Tc_Marcas.ResumeLayout(false);
             this.Tp_Listado.ResumeLayout(false);

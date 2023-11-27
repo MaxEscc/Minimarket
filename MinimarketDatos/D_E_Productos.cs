@@ -124,7 +124,7 @@ namespace MinimarketDatos
                 Comando.Parameters.Add("@nCodigo_ep", SqlDbType.Int).Value = codigo_ep;
 
                 SqlCon.Open();
-                Respuesta = Comando.ExecuteNonQuery() == 1 ? "OK" : "NO SE PUDO ELIMINAR LOS DATOS";
+                Respuesta = Comando.ExecuteNonQuery() >= 1 ? "OK" : "NO SE PUDO ELIMINAR LOS DATOS";
             }
             catch (Exception ex)
             {

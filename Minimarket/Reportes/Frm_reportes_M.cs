@@ -19,7 +19,9 @@ namespace Minimarket.Reportes
 
         private void Frm_reportes_M_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'data.USP_Listado_rb' Puede moverla o quitarla según sea necesario.
             this.USP_Listado_maTableAdapter.Fill(this.data.USP_Listado_ma, cTexto: txt_reportes.Text);
+
             this.reportViewer1.RefreshReport();
         }
     }
